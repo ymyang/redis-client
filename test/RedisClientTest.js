@@ -11,26 +11,26 @@ describe('RedisClient', function() {
     it('get', function(done) {
         this.timeout(0);
         var client = new RedisClient('192.168.1.120', 6379);
-        client.get('test-set').then(function(data) {
+        client.get('test-hmset').then(function(data) {
             console.log(data);
             done();
         }).catch(done);
     });
     it('delete', function() {
         var client = new RedisClient('192.168.1.120', 6379);
-        client.delete('test-set');
+        client.delete('test-hmset');
     });
     it('hmset', function() {
+        var obj = {key1: 'value test', key2: 345};
+        var key = 'test-key2';
         var client = new RedisClient('192.168.1.120', 6379);
-        client.set('test-hmset', {
-            userId: 1234,
-            userName: 'test'
-        });
+        client.hmset(key, obj);
     });
-    it('hmget', function(done) {
+    it.only('hmget', function(done) {
         this.timeout(0);
+        var key = 'test-key2';
         var client = new RedisClient('192.168.1.120', 6379);
-        client.hmget('test-hmset').then(function(data) {
+        client.hmget(key).then(function(data) {
             console.log(data);
             done();
         }).catch(done);
