@@ -1,13 +1,13 @@
 # redis-client
 node redis client
 
-# 安装
+# 瀹夎
 
 ```
 npm install redis.js
 ```
 
-# 使用
+# 浣跨敤
 
 ```
 var RedisClient = RedisClient('redis.js');
