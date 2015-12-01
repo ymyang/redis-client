@@ -14,19 +14,24 @@ var RedisClient = RedisClient('redis.js');
 
 var client = new RedisClient('127.0.0.1', 6379);
 
- 
+
+ // 缓存字符串，expire为有效期（秒，可选）
 client.set(key, value, expire);
 
+// 取字符串值
 client.get(key).then(function(data) {
     console.log(data);
 }).catch(function(err) {
     console.error(err);    
 });
 
+// 删除缓存
 client.delete(key);
 
+// 缓存对象，expire为有效期（秒，可选）
 client.hmset(key, value, expire);
 
+// 取缓存对象
 client.hgetall(key).then(function(data) {
     console.log(data);
 }).catch(function(err) {
