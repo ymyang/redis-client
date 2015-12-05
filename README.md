@@ -9,7 +9,8 @@ npm install redis.js
 
 # 使用
 
-```
+```javascript
+
 var RedisClient = RedisClient('redis.js');
 
 var client = new RedisClient('127.0.0.1', 6379);
@@ -37,6 +38,7 @@ client.hgetall(key).then(function(data) {
 }).catch(function(err) {
     console.error(err);    
 });
+
 
 ```
 
