@@ -4,9 +4,11 @@
 var RedisClient = require('../index.js');
 
 describe('RedisClient', function() {
-    it('set', function() {
+    it('set', function(done) {
         var client = new RedisClient('192.168.1.120', 6379);
-        client.set('test-set', 'test set value');
+        client.set('test-set', 'test set value').then(function() {
+            done();
+        }).catch(done);
     });
     it('get', function(done) {
         this.timeout(0);
@@ -16,15 +18,19 @@ describe('RedisClient', function() {
             done();
         }).catch(done);
     });
-    it('delete', function() {
+    it('delete', function(done) {
         var client = new RedisClient('192.168.1.120', 6379);
-        client.delete('test-hmset');
+        client.delete('test-hmset').then(function() {
+            done();
+        }).catch(done);
     });
-    it('hmset', function() {
+    it('hmset', function(done) {
         var obj = {key1: 'value test', key2: 345};
         var key = 'test-key2';
         var client = new RedisClient('192.168.1.120', 6379);
-        client.hmset(key, obj);
+        client.hmset(key, obj).then(function() {
+            done();
+        }).catch(done);
     });
     it.only('hmget', function(done) {
         this.timeout(0);

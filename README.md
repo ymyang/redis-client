@@ -17,7 +17,11 @@ var client = new RedisClient('127.0.0.1', 6379);
 
 
  // 缓存字符串，expire为有效期（秒，可选）
-client.set(key, value, expire);
+client.set(key, value, expire).then(function(data) {
+    console.log('set ok');
+}).catch(function(err) {
+    console.error(err);    
+});
 
 // 取字符串值
 client.get(key).then(function(data) {
@@ -27,10 +31,18 @@ client.get(key).then(function(data) {
 });
 
 // 删除缓存
-client.delete(key);
+client.delete(key).then(function(data) {
+    console.log('delete ok');
+}).catch(function(err) {
+    console.error(err);    
+});
 
 // 缓存对象，expire为有效期（秒，可选）
-client.hmset(key, value, expire);
+client.hmset(key, value, expire).then(function(data) {
+    console.log('hmset ok');
+}).catch(function(err) {
+    console.error(err);    
+});
 
 // 取缓存对象
 client.hgetall(key).then(function(data) {
