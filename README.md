@@ -13,7 +13,13 @@ npm install redis.js
 
 var RedisClient = RedisClient('redis.js');
 
-var client = new RedisClient('127.0.0.1', 6379);
+var opts = {
+    host: '192.168.0.23',
+    post: 6379,
+    password: 'yliyun@123'
+};
+
+var client = new RedisClient(opts);
 
 
  // 缓存字符串，expire为有效期（秒，可选）
@@ -51,6 +57,4 @@ client.hgetall(key).then(function(data) {
     console.error(err);    
 });
 
-
 ```
-
