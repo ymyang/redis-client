@@ -21,7 +21,7 @@
   "homepage": "https://github.com/ymyang/redis-client#readme",
   "dependencies": {
     "bluebird": "^3.3.5",
-    "redis": "^2.5.3"
+    "redis": "^2.6.2"
   },
   "devDependencies": {
     "mocha": "^2.4.5"
