@@ -1,6 +1,6 @@
 {
   "name": "redis.js",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "node redis client",
   "main": "index.js",
   "scripts": {
